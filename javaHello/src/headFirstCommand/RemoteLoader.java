@@ -24,12 +24,27 @@ public class RemoteLoader {
 
         System.out.println(remoteControl.toString());
 
-        remoteControl.onButtonWasPushed(0);
+        /*remoteControl.onButtonWasPushed(0);
         remoteControl.offButtonWasPushed(0);
         remoteControl.onButtonWasPushed(1);
         remoteControl.offButtonWasPushed(1);
         remoteControl.onButtonWasPushed(2);
         remoteControl.offButtonWasPushed(2);
+        remoteControl.undoButtonWasPushed();*/
+
+        //宏命令
+        Command[] partyOn = {livingRoomLightOn, kitchenLightOn, stereoOnWhithCD};
+        Command[] partyOff = {livingRoomLightOff, kitchenLightOff, stereoOffCommand};
+
+        MacroCommand partyOnMacro = new MacroCommand(partyOn);
+        MacroCommand partyOffMacro = new MacroCommand(partyOff);
+
+        remoteControl.setCommand(4, partyOnMacro, partyOffMacro);
+        System.out.println("---Pushing Macro On---");
+        remoteControl.onButtonWasPushed(4);
+        System.out.println("---Pushing Macro Off---");
+        remoteControl.offButtonWasPushed(4);
+        System.out.println("---Pushing Macro Undo---");
         remoteControl.undoButtonWasPushed();
     }
 }
