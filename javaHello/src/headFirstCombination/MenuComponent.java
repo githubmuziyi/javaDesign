@@ -4,6 +4,7 @@ import java.util.Iterator;
 
 /**
  * 菜单组件：为叶子节点和组合节点提供一个共同的接口
+ * 组合模式：允许你将对象组成树形结构来表现"整体/部分"的层次结构，组合能让客户以一直的方式处理个别对象和对象组合
  * Created by muzi on 2017/7/3.
  */
 public abstract class MenuComponent {
